@@ -31,9 +31,6 @@ public class Main {
 
         boolean isPlaying = true;
         int initialScore = 10;
-        int countWins = 0;
-
-
 
         printWord(title, playerGuesses);
 
@@ -57,7 +54,6 @@ public class Main {
             }
             }
         }
-
 
         public static boolean getPlayerGuesses (Scanner userChoice, String title, List <Character> playerGuesses) {
 
