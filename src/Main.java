@@ -11,53 +11,65 @@ public class Main {
 
         //create objects of class scanner and import the files with movies titles
 
-        Scanner fileScanner = new Scanner(new File(home/amanda/moviesTitles.txt));
+       //Scanner fileScanner = new Scanner(new File(/home/amanda/~Desktop/moviesTitles.plaintext/));
         Scanner userChoice = new Scanner(System.in);
 
         // create list of titles & adds titles from file to the array list
 
         List<String> titles = new ArrayList<>();
-        while (fileScanner.hasNext()) {
-            titles.add(fileScanner.nextLine());
 
-        }
 
         // create object of a random class
 
         Random random = new Random();
-        String title = titles.get(random.nextInt(titles.size()));
+        String title = "Dupa";
 
         System.out.println(title);
 
         List<Character> playerGuesses = new ArrayList<>();
         printWord(title, playerGuesses);
 
+        int initialScore = 10;
+
         while (true) {
-            getPlayerGuesses(userChoice, title, playerGuesses);
+            printWord(title, playerGuesses);
+            if (!getPlayerGuesses(userChoice, title, playerGuesses)) {
+                initialScore--;
+                System.out.println(initialScore);
+                if (initialScore == 0) {
+                    System.out.println("Game over. You've lost all your points");
+                }
+                break;
+            }
 
             if (printWord(title, playerGuesses)) {
                 System.out.println(("\nGame over. You have won"));
+                break;
+            }
             }
         }
 
-    }
-        public static void getPlayerGuesses (Scanner userChoice, String title, List <Character> playerGuesses){
 
-            System.out.println("\nPlease enter a letter");
+        public static boolean getPlayerGuesses (Scanner userChoice, String title, List <Character> playerGuesses) {
+
+            System.out.print("\nPlease enter a letter");
             String letterGuess = userChoice.nextLine();
             playerGuesses.add(letterGuess.charAt(0));
+
+            return title.contains(letterGuess);
+
 
         }
 
         public static boolean printWord (String title, List <Character> playerGuesses){
             int countGuesses = 0;
             int countBlanks = 0;
-            int initialScore = 10;
+
 
             for (int i = 0; i < title.length(); i++) {
 
                 if (playerGuesses.contains(title.charAt(i))) {
-                    System.out.println(title.charAt(i));
+                    System.out.print(title.charAt(i));
                 } else if (title.charAt(i) == ' ') {
                     System.out.print(' ');
                     countBlanks++;
