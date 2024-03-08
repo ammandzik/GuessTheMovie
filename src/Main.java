@@ -8,16 +8,22 @@ import java.util.Random;
 
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
         //create objects of class scanner and import the files with movies titles
 
-        // Scanner fileScanner = new Scanner(new File("home/amanda/IdeaProjects/GuessTheMovie/src/moviesTitles.txt"));
+        try {
+            Scanner fileScanner = new Scanner(new File("/home/amanda/IdeaProjects/GuessTheMovie/src/moviesTitles.txt"));
+        } catch (Exception e) {
+            System.out.println("file not found.");
+        }
+
+
         Scanner userChoice = new Scanner(System.in);
 
         // create list of titles & adds titles from file to the array list
 
-        List<String> titles = new ArrayList<>();
+//        List <String> titles = new ArrayList<>();
 
 //        while (fileScanner.hasNext()) {
 //            titles.add(fileScanner.nextLine());
@@ -39,7 +45,7 @@ public class Main {
         while (true) {
 
             if (printWord(title, playerGuesses)) {
-                System.out.println("\nYou have won");
+                System.out.println("\nYou've won!");
                 break;
 
             } else if (!getPlayerGuesses(userChoice, title, playerGuesses)) {
