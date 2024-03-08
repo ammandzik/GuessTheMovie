@@ -12,7 +12,7 @@ public class Main {
 
         //create objects of class scanner and import the files with movies titles
 
-        //Scanner fileScanner = new Scanner(new File("home/amanda/Desktop/moviesTitles.txt"));
+        Scanner fileScanner = new Scanner(new File("home/amanda/IdeaProjects/GuessTheMovie/src/moviesTitles.txt"));
         Scanner userChoice = new Scanner(System.in);
 
         // create list of titles & adds titles from file to the array list
@@ -26,7 +26,7 @@ public class Main {
         // create object of a random class
 
         Random random = new Random();
-//        String title = titles.get(random.nextInt(titles.size()));
+//      String title = titles.get(random.nextInt(titles.size()));
         String title = "random title";
 
         System.out.println(title);
