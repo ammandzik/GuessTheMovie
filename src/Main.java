@@ -1,5 +1,6 @@
 
 import java.io.FileNotFoundException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -8,32 +9,29 @@ import java.util.Random;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         //create objects of class scanner and import the files with movies titles
 
-        try {
-            Scanner fileScanner = new Scanner(new File("/home/amanda/IdeaProjects/GuessTheMovie/src/moviesTitles.txt"));
-        } catch (Exception e) {
-            System.out.println("file not found.");
-        }
+
+        Scanner fileScanner = new Scanner(new File("/home/amanda/IdeaProjects/moviesTitles"));
+
 
 
         Scanner userChoice = new Scanner(System.in);
 
         // create list of titles & adds titles from file to the array list
 
-//        List <String> titles = new ArrayList<>();
+        List <String> titles = new ArrayList<>();
 
-//        while (fileScanner.hasNext()) {
-//            titles.add(fileScanner.nextLine());
-//        }
+        while (fileScanner.hasNext()) {
+            titles.add(fileScanner.nextLine());
+        }
 
         // create object of a random class
 
         Random random = new Random();
-//      String title = titles.get(random.nextInt(titles.size()));
-        String title = "random title";
+        String title = titles.get(random.nextInt(titles.size()));
 
         System.out.println(title);
 
