@@ -33,6 +33,8 @@ public class Main {
         Random random = new Random();
         String title = titles.get(random.nextInt(titles.size()));
 
+
+        // control check of title
         System.out.println(title);
 
         List<Character> playerGuesses = new ArrayList<>();
